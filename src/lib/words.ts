@@ -1,16 +1,20 @@
 import { WORDS } from '../constants/wordlist'
-import { VALID_GUESSES } from '../constants/validGuesses'
 import { getGuessStatuses } from './statuses'
 
 export const isWordInWordList = (word: string) => {
-  return (
-    WORDS.includes(word.toLowerCase()) ||
-    VALID_GUESSES.includes(word.toLowerCase())
-  )
+  for (let w of WORDS) {
+    if ((w.length > 4 && w.substring(0, 4) === word.toLowerCase())
+        || (w.length === 4 && w === word.toLowerCase())
+        || (w.length === 3 && (w + ' ') === word.toLowerCase())
+      ) {
+      return true;
+    }
+  }
+  return false;
 }
 
 export const isWinningWord = (word: string) => {
-  return solution === word
+  return solution.substring(0, 4) === word
 }
 
 // build a set of previously revealed letters - present and correct

@@ -117,7 +117,8 @@ function App() {
     if (isGameWon) {
       setTimeout(() => {
         setSuccessAlert(
-          WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)]
+          WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)] +
+            ` The seed word was ${solution}.`
         )
 
         setTimeout(() => {
