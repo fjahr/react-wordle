@@ -14,7 +14,7 @@ export const isWordInWordList = (word: string) => {
 }
 
 export const isWinningWord = (word: string) => {
-  return solution.substring(0, 4) === word
+  return solution.substring(0, 4) === word || solution === word.trim();
 }
 
 // build a set of previously revealed letters - present and correct
